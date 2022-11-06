@@ -119,7 +119,7 @@ async def search(client, message):
             text += f"🌐 {results[i]['channel']}\n"
             text += f"🔗 https://www.youtube.com{results[i]['url_suffix']}\n\n"
             i += 1
-        await m.edit(text, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Serø ⁞ Bots Service", url="https://t.me/SeroBots")]]), disable_web_page_preview=True)
+        await m.edit(text, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("المطور", url="https://t.me/rcrcu")]]), disable_web_page_preview=True)
     except Exception as e:
         await m.edit(str(e))
 
