@@ -17,7 +17,7 @@ token = os.environ.get("TOKEN")
 
 app = Client("yt", bot_token=token, api_id = api_id, api_hash = api_hash)
 
-Sudo_id = '1390519416'
+Sudo_id = '5375407655'
 @app.on_message(ay.command("start"))
 async def start(client, message):
    await message.reply_text(
@@ -25,8 +25,8 @@ async def start(client, message):
       reply_markup=InlineKeyboardMarkup(
          [
             [
-               InlineKeyboardButton("❕ ┇ كيفيه استخدام البوت", url=f"https://t.me/SeroBots/3251"),
-               InlineKeyboardButton("", url=f"https://t.me/SeroBots"),
+               InlineKeyboardButton("المطور ", url=f"https://t.me/rcrcu"),
+               InlineKeyboardButton("", url=f"https://t.me/rcrcu"),
             ]
          ]
       )
@@ -59,7 +59,7 @@ async def VideoDownLoad(client, callback_query):
    except Exception as e:
       await client.send_message(chat_id=Sudo_id,text=e)
       return await callback_query.edit_message_text(e)
-   await callback_query.edit_message_text("*🚀 يتم الرفع علي خوادم تلكرام *")
+   await callback_query.edit_message_text("* يتم التنزيل    *")
    await client.send_video(
             callback_query.message.chat.id,
             video=video_file,
@@ -68,7 +68,7 @@ async def VideoDownLoad(client, callback_query):
             supports_streaming=True,
             caption=f"[{ytdl_data['title']}]({url})"
         )
-   await callback_query.edit_message_text("Done Send Video 🚧")
+   await callback_query.edit_message_text("تم التنزيل")
    os.remove(video_file)
 
 @app.on_callback_query(ay.regex("audio"))
@@ -84,7 +84,7 @@ async def AudioDownLoad(client, callback_query):
    except Exception as e:
       await client.send_message(chat_id=Sudo_id,text=e)
       return await callback_query.edit_message_text(e)
-   await callback_query.edit_message_text("*🚀 يتم الرفع علي خوادم تلكرام *")
+   await callback_query.edit_message_text("* يتم التنزيل    *")
    await client.send_audio(
       callback_query.message.chat.id,
       audio=audio_file,
@@ -95,7 +95,7 @@ async def AudioDownLoad(client, callback_query):
       thumb=thumb,
       caption=f"[{ytdl_data['title']}]({url})"
    )
-   await callback_query.edit_message_text("Done Send Video 🚧")
+   await callback_query.edit_message_text("تم التنزيل")
    os.remove(audio_file)
    os.remove(thumb)
 
