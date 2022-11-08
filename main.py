@@ -21,12 +21,12 @@ Sudo_id = '5375407655'
 @app.on_message(ay.command("start"))
 async def start(client, message):
    await message.reply_text(
-      "👋┇أهلاً بك عزيزي،\nمع البوت يمكنك\nتحميل من اليوتيوب بصيغ\nمتعددة والاستماع اليها في أي وقت\nمع ميزه البحث فقط اكتب بحث +\nالكلمه",
+      "↯︙اެهـݪاެ حـبـي .\n↯︙في بـۅت تـحـميل .\n↯︙تَحِـمِـيـݪ مِن اެݪـيَـۅٛتَـيَـۅبَ\n↯︙مِـتعَدَدَة ۅٛاެݪاެسِـتَـمِـاެعَ اެݪيَـة بَاެيَ ۅٛقـتَ\n↯︙مِـعَ مِـيَـࢪ࣪ة اެݪـبَـحِثَ +\nاެݪـكـݪـمة",
       reply_markup=InlineKeyboardMarkup(
          [
             [
-               InlineKeyboardButton("المطور ", url=f"https://t.me/rcrcu"),
-               InlineKeyboardButton("", url=f"https://t.me/rcrcu"),
+               InlineKeyboardButton("اެݪـمِـطَـۅࢪ ", url=f"https://t.me/rr8r3"),
+               InlineKeyboardButton("", url=f"https://t.me/re8r3"),
             ]
          ]
       )
@@ -40,8 +40,8 @@ async def ytdl(client, message):
       reply_markup=InlineKeyboardMarkup(
          [
             [
-               InlineKeyboardButton("🎧 مقطع صوتي .", callback_data="audio"),
-               InlineKeyboardButton("🎬 مقطع فيديو .", callback_data="video"),
+               InlineKeyboardButton("🎧 مِـقِـطَـع صِـۅتَـي .", callback_data="audio"),
+               InlineKeyboardButton("🎬 مِـقِـطَـع فيديو.", callback_data="video"),
             ]
          ]
       )
@@ -49,11 +49,11 @@ async def ytdl(client, message):
 
 @app.on_callback_query(ay.regex("video"))
 async def VideoDownLoad(client, callback_query):
-   await callback_query.edit_message_text("*🎚 ┇ يتم قياس حجم التحميل*")
+   await callback_query.edit_message_text(" . يتم قياس حجم التحميل")
    try:
       url = callback_query.message.text.split(' : ',1)[1]
       with YoutubeDL(video) as ytdl:
-         await callback_query.edit_message_text("*♻️┇جاري التحميل...*")
+         await callback_query.edit_message_text("♻️┇جاري التحميل..")
          ytdl_data = ytdl.extract_info(url, download=True)
          video_file = ytdl.prepare_filename(ytdl_data)
    except Exception as e:
@@ -73,11 +73,11 @@ async def VideoDownLoad(client, callback_query):
 
 @app.on_callback_query(ay.regex("audio"))
 async def AudioDownLoad(client, callback_query):
-   await callback_query.edit_message_text("*🎚 ┇ يتم قياس حجم التحميل*")
+   await callback_query.edit_message_text(".يتم قياس حجم التحميل")
    try:
       url = callback_query.message.text.split(' : ',1)[1]
       with YoutubeDL(audio) as ytdl:
-         await callback_query.edit_message_text("*♻️┇جاري التحميل...*")
+         await callback_query.edit_message_text("♻️جاري التحميل...")
          ytdl_data = ytdl.extract_info(url, download=True)
          audio_file = ytdl.prepare_filename(ytdl_data)
          thumb = wget.download(f"https://img.youtube.com/vi/{ytdl_data['id']}/hqdefault.jpg")
@@ -95,7 +95,7 @@ async def AudioDownLoad(client, callback_query):
       thumb=thumb,
       caption=f"[{ytdl_data['title']}]({url})"
    )
-   await callback_query.edit_message_text("تم التنزيل")
+   await callback_query.edit_message_text("تم التحميل ⛹🏻‍♂️")
    os.remove(audio_file)
    os.remove(thumb)
 
